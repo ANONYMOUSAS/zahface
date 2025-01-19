@@ -17,3 +17,6 @@ samples, guidance on mobile development, and a full API reference.
 
 #18-01-2025
 - Created Project
+
+#19-01-2025
+- Added Login Screen
