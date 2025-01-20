@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zahface/screens/auth/register.dart';
 
 import '../../providers/auth_providers.dart';
 import '../../utills/common.dart';
 import '../../utills/custom_widget.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Register extends StatefulWidget {
+  const Register({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
+class _RegisterState extends State<Register> with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _phonePasswordController = TextEditingController();
+  final TextEditingController _phoneUsernameController = TextEditingController();
 
   @override
   void initState() {
@@ -48,7 +49,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "Login",
+                  "Register",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 40,
@@ -70,7 +71,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                 ),
                 const SizedBox(height: 20),
                 SizedBox(
-                  height: height * 0.4,
+                  height: height * 0.5,
                   child: TabBarView(
                     controller: _tabController,
                     children: [
@@ -96,6 +97,14 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomTextField(
+            controller: _usernameController,
+            hintText: "Enter your Full Name",
+            label: "Name",
+            icon: Icons.person,
+            keyboardType: TextInputType.name,
+          ),
+          const SizedBox(height: 10),
+          CustomTextField(
             controller: _emailController,
             hintText: "jhon@example.com",
             label: "Email",
@@ -116,7 +125,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
           ),
           const SizedBox(height: 20),
           CustomButton(
-            text: "Login",
+            text: "Register",
             onPressed: () {
               // Handle email login logic
             },
@@ -136,6 +145,14 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          CustomTextField(
+            controller: _phoneUsernameController,
+            hintText: "Enter your Full Name",
+            label: "Name",
+            icon: Icons.person,
+            keyboardType: TextInputType.name,
+          ),
+          const SizedBox(height: 10),
           CustomTextField(
             controller: _phoneNumberController,
             hintText: "Enter your phone number",
@@ -158,7 +175,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
           ),
           const SizedBox(height: 20),
           CustomButton(
-            text: "Login",
+            text: "Register",
             onPressed: () {
               // Handle phone login logic
             },
@@ -175,7 +192,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Don't have an Account?",
+          "Already have an Account?",
           style: TextStyle(
             fontSize: 14,
             color: white,
@@ -183,10 +200,10 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
         ),
         TextButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Register()));
+            Navigator.pop(context);
           },
           child: Text(
-            "Register",
+            "Login",
             style: TextStyle(
               fontSize: 14,
               color: Color(4281011007),

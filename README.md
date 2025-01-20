@@ -20,3 +20,6 @@ samples, guidance on mobile development, and a full API reference.
 
 #19-01-2025
 - Added Login Screen
+
+#20-01-2024
+- Added Register Screen

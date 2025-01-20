@@ -63,7 +63,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: white,
+        backgroundColor: Color(4281011007),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
@@ -73,7 +73,7 @@ class CustomButton extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          color: black,
+          color: white,
           fontSize: 20.0,
           fontWeight: FontWeight.bold,
         ),
