@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zahface/screens/auth/register.dart';
 
+import '../../API/auth_service.dart';
 import '../../providers/auth_providers.dart';
 import '../../utills/common.dart';
-import '../../utills/custom_widget.dart';
+import '../../widget/custom_widget.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -19,6 +20,8 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _phonePasswordController = TextEditingController();
+
+  final ApiService _apiService = ApiService();
 
   @override
   void initState() {
@@ -119,6 +122,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
             text: "Login",
             onPressed: () {
               // Handle email login logic
+              _apiService.handleLogin(context, _emailController.text, _passwordController.text);
             },
           ),
           const SizedBox(height: 10),

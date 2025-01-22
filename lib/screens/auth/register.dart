@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../API/auth_service.dart';
 import '../../providers/auth_providers.dart';
 import '../../utills/common.dart';
-import '../../utills/custom_widget.dart';
+import '../../widget/custom_widget.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -20,6 +21,8 @@ class _RegisterState extends State<Register> with SingleTickerProviderStateMixin
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _phonePasswordController = TextEditingController();
   final TextEditingController _phoneUsernameController = TextEditingController();
+
+  final ApiService _apiService = ApiService();
 
   @override
   void initState() {
@@ -128,6 +131,7 @@ class _RegisterState extends State<Register> with SingleTickerProviderStateMixin
             text: "Register",
             onPressed: () {
               // Handle email login logic
+              _apiService.handleSignUp(context, _usernameController.text, _emailController.text, _passwordController.text);
             },
           ),
           const SizedBox(height: 10),
